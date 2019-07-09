@@ -24,13 +24,14 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
+    authorize @task
     redirect_to tasks_path
   end
 
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:id]) if Task.count != 0
     authorize @task
   end
 
