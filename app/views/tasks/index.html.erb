@@ -1,30 +1,82 @@
 <div class="main-img">
   <div class="container">
+    <div class="task-container">
+      <div class="row">
+        <div class="col-md-6 col-lg-8">
+          <div class="card bg-white">
+            <h1>Daydo | Organizing made simple</h1>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-white">
+            <ul>
+                <% if user_signed_in? %>
+              <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+      <div class="col-md-6 col-lg-8">
+        <div class="card bg-white">
+          <table>
+            <tr>
+              <th>Priority</th>
+              <th>Title</th>
+              <th>Deadline</th>
+              <th>Comments</th>
+              <th>Done</th>
+              <th>Delete</th>
+            </tr>
+            <% @tasks.each do |task| %>
+            <tr>
+              <td><%= task.sort_priority %></td>
+              <td><%= task.title %></td>
+              <td><%= task.deadline %></td>
+              <td></td>
+              <td>
+                <% if task.completed %>
+                <i class="fa fa-check-square-o"></i>
+                <% else %>
+                <i class="fa fa-square-o"></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+                <i class="far fa-trash-alt"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-white">
+          <%= link_to new_task_path do %>
+          <i class="fa fa-plus"></i> Add a new task
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
   </div>
 </div>
 
 
-        <h1>My tasks</h1>
 
-        <ul id="tasks">
-          <% @tasks.each do |task| %>
-            <li>
-              <% if task.completed %>
-                <i class="fa fa-check-square-o"></i>
-              <% else %>
-                <i class="fa fa-square-o"></i>
-              <% end %>
-              <%= link_to task.title, task_path(task.id) %>
-              ·
-              <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
 
-        <hr>
 
-        <%= link_to new_task_path do %>
-          <i class="fa fa-plus"></i> Add a new task
-        <% end %>
+
+
+
