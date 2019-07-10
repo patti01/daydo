@@ -2,6 +2,18 @@
   background-image: url(https://i.pinimg.com/564x/b7/58/c2/b758c29caedf9fb486bdf745981c0f78.jpg);
   background-size: cover !important;
   height: 100%;
+  min-height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.container {
+  max-width: 1300px;
+}
+
+.task-container {
+  background-color: white;
+  padding: 50px 0;
 }
 
 .main-box {

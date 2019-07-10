@@ -4,13 +4,12 @@
   align-items: center;
 }
 
-
 .container-form {
   display: flex;
   justify-content:center;
 }
 
-.row {
+.row-custom {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -18,7 +17,7 @@
 }
 
 .form-login {
-  margin: 60px auto 0px auto;
+  //margin: 60px auto 0px auto;
   background: white;
   padding: 40px 40px 10px 40px;
   border-top-left-radius: 4px;
