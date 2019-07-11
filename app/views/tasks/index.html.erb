@@ -37,7 +37,7 @@
               <th id="trash-cell"><p>Delete</p></th>
             </tr>
             <% @tasks.each do |task| %>
-            <tr class="tasks-dashboard" data-task-id='<%= task.id %>'>
+            <tr class="tasks-dashboard" data-task-id='<%= task.id %>' id="task-add">
               <td><%= task.sort_priority %></td>
               <td><%= link_to task["title"], task_path(task.id) %></td>
               <td><%= task.deadline %></td>
