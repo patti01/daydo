@@ -1,4 +1,4 @@
- <div class="main-img">
+<div class="main-img">
   <div class="container-form">
     <div class="row row-custom">
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
@@ -21,8 +21,10 @@
         <div class="form-login-bottom">
           <div class="form-actions">
             <%= f.button :submit, "Log in", class: "btn" %>
-            <% unless current_user %>   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %><% else %>  <%= current_user[:name] %>  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            <% end %>
+              <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false">
+              <% unless current_user %>   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+              <% end %>
+              </div>
             <div class="links-section">
               <%= render "devise/shared/links" %>
             </div>
