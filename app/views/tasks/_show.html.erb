@@ -1,0 +1,11 @@
+<div id="comments">
+  <% if @comments.blank? %>
+    <%= render 'comments/form', task: @task, comment: @comment %>
+  <% else %>
+    <% @comments.each do |comment| %>
+      <%= render 'comments/show', comment: comment %>
+    <% end %>
+  <% end %>
+</div>
+
+
