@@ -1,0 +1,14 @@
+<h1><%= @task.title %></h1>
+<h1><%= @task.deadline %></h1>
+
+<div id="comments">
+  <% if @task.comments.blank? %>
+    TEST
+  <% else %>
+    <% @task.comments.each do |comment| %>
+      <%= render 'comments/show', comment: comment %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'comments/form', task: @task, comment: @comment %>

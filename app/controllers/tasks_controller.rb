@@ -17,15 +17,26 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def show
+    authorize @task
+    @comment = Comment.new
+    @comments = @task.comments
+  end
+
   def update
     @task.update(task_params)
     redirect_to task_path(@task)
   end
 
   def destroy
-    @task.destroy
+    @task_id = @task.id
     authorize @task
-    redirect_to tasks_path
+    @task.destroy
+
+    respond_to do |format|
+      format.html { render 'tasks/index' }
+      format.js
+    end
   end
 
   private

@@ -1,0 +1,53 @@
+table {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+th {
+  padding: 8px 16px;
+  p {
+    color: #1f1f1f;
+  }
+}
+
+td {
+  padding: 8px 16px;
+}
+
+tr.tasks-dashboard {
+  margin-bottom: 8px;
+  background-color: #EDEDED;
+  border: 1px solid #EDEDED;
+  border-radius: 20px;
+  padding: 20px 0px;
+}
+
+
+#add-block {
+  background-color: #4c5def;
+}
+
+#priority-cell {
+  width: 5%;
+}
+
+#title-cell {
+  width: 30%;
+}
+
+#comments-cell {
+  width: 40%;
+}
+
+#deadline-cell {
+  width: 15%;
+}
+
+#completed-cell {
+  width: 5%;
+}
+
+#trash-cell {
+  width: 5%;
+}
+

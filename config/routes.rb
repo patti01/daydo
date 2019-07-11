@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/new'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'tasks#index'
 
-   resources :tasks, except: [:show]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :tasks do
+    resources :comments, only: [ :show, :create ]
+  end
+  resources :comments, only: [ :destroy ]
 end

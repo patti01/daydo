@@ -13,7 +13,8 @@ module Daydo
           generate.helper false
           generate.test_framework  :test_unit, fixture: false
         end
-    # Initialize configuration defaults for originally generated Rails version.
+
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
