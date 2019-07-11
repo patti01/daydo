@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newTaskForm = document.getElementById('new_task');
+  newTaskForm.innerHTML = innerHTML;
+}
+
+function addTask(taskHTML) {
+  const tasks = document.querySelector("[data-task-id='<%= @task.id %>']");
+  tasks.insertAdjacentHTML('beforeend', taskHTML);
+}
+
+<% if @task.errors.any? %>
+  refreshForm('<%= j render "tasks/form", task: @task %>');
+<% else %>
+  addTask('<%= j render "tasks/index" %>');
+  refreshForm('<%= j render "tasks/form", task: Task.new %>');
+<% end %>
