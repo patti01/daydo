@@ -1,0 +1,16 @@
+.btn-task {
+  color: white;
+  background-color: #4c5def;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+}
+
+.btn-task:hover {
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+}

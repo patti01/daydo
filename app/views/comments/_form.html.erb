@@ -1,0 +1,4 @@
+<%= simple_form_for([ task, comment ], remote: true) do |f| %>
+  <%= f.input :detail, as: :text %>
+  <%= f.button :submit %>
+<% end %>

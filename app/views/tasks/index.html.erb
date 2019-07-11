@@ -29,19 +29,21 @@
         <div class="card bg-white">
           <table>
             <tr>
-              <th>Priority</th>
-              <th>Title</th>
-              <th>Deadline</th>
-              <th>Comments</th>
-              <th>Done</th>
-              <th>Delete</th>
+              <th id="priority-cell"><p>Priority</p></th>
+              <th id="title-cell"><p>Title</p></th>
+              <th id="deadline-cell"><p>Deadline</p></th>
+              <th id="comments-cell"><p>Comments</p></th>
+              <th id="completed-cell"><p>Done</p></th>
+              <th id="trash-cell"><p>Delete</p></th>
             </tr>
             <% @tasks.each do |task| %>
-            <tr>
+            <tr class="tasks-dashboard" data-task-id='<%= task.id %>'>
               <td><%= task.sort_priority %></td>
-              <td><%= task.title %></td>
+              <td><%= link_to task["title"], task_path(task.id) %></td>
               <td><%= task.deadline %></td>
-              <td></td>
+              <td>
+
+              </td>
               <td>
                 <% if task.completed %>
                 <i class="fa fa-check-square-o"></i>
@@ -50,7 +52,7 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to task_path(task.id), method: :delete, data: { confirm: "Delete #{task.title}?" } do %>
+                <%= link_to task_path(task.id), method: :delete, remote: true, data: { confirm: "Delete #{task.title}?" } do %>
                 <i class="far fa-trash-alt"></i>
                 <% end %>
               </td>
@@ -59,9 +61,9 @@
           </table>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4" id="add-block">
         <div class="card bg-white">
-          <%= link_to new_task_path do %>
+          <%= link_to new_task_path, class: "btn-task" do %>
           <i class="fa fa-plus"></i> Add a new task
         <% end %>
         </div>
