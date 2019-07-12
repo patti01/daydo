@@ -4,13 +4,13 @@ function refreshForm(innerHTML) {
 }
 
 function addTask(taskHTML) {
-  const tasks = document.querySelector("[data-task-id='<%= @task.id %>']");
+  const tasks = document.querySelector(".display-left[data-task-id='<%= task.id%>']");
   tasks.insertAdjacentHTML('beforeend', taskHTML);
 }
 
 <% if @task.errors.any? %>
   refreshForm('<%= j render "tasks/form", task: @task %>');
 <% else %>
-  addTask('<%= j render "tasks/index" %>');
-  refreshForm('<%= j render "tasks/form", task: Task.new %>');
+  addTask('<%= j render "tasks", task: @task %>');
+  refreshForm('<%= j render "tasks/form", task: @task, task: Task.new %>');
 <% end %>

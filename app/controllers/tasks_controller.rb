@@ -12,20 +12,26 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.build(task_params)
+    @task = Task.new(task_params)
+    @task.user = current_user
     authorize @task
 
     if @task.save
-      respond_to do |format|
-        format.html { redirect_to tasks_path, notice: 'Task was successfully created !' }
-        format.js
-      end
-    else
-      respond_to do |format|
-        format.html { render 'tasks/index' }
-        format.js
-      end
+      redirect_to tasks_path
     end
+
+    #A DEBUGGUER
+    # if @task.save
+    #   respond_to do |format|
+    #     format.html { redirect_to tasks_path, notice: 'Task was successfully created !' }
+    #     format.js { }
+    #   end
+    # else
+    #   respond_to do |format|
+    #     format.html { render :index }
+    #     format.js { }
+    #   end
+    # end
   end
 
   def show
