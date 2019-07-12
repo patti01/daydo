@@ -1,11 +1,13 @@
+<h1><%= @task.title %></h1>
+
 <div id="comments">
-  <% if @comments.blank? %>
-    <%= render 'comments/form', task: @task, comment: @comment %>
+  <% if @task.comments.blank? %>
+    TEST
   <% else %>
-    <% @comments.each do |comment| %>
-      <%= render 'comments/show', task: @task, comment: @comment %>
+    <% @task.comments.each do |comment| %>
+      <%= render 'comments/show', comment: comment %>
     <% end %>
   <% end %>
 </div>
 
-
+<%= render 'form', task: @task, comment: @comment %>
