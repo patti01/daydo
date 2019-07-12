@@ -41,7 +41,7 @@
                       </div>
                       <div class="deadline-section">
                         <i class="far fa-calendar-alt"></i>
-                        <%= task.deadline %>
+                        <%= task.deadline.strftime("%m/%d/%y") %>
                       </div>
                       <div class="priority-section">
                         <%= task.sort_priority %>
@@ -82,13 +82,19 @@
 
 
         <div class="dashboard-right">
-          <%= link_to new_task_path, class: "btn-task" do %>
-          <i class="fa fa-plus"></i> Add a new task
-        <% end %>
-        <%= render 'form', task: @task %>
+          <div class="row" id="container-right">
+          <div class="btn-left">
+          <%= link_to new_task_path, class: "btn-task custom", data: {toggle: "collapse", target: "#collapseAddTask"} do %>
+            <i class="fa fa-plus"></i> Add a new task
+          <% end %>
+          </div>
+          <div class="btn-right"></div>
+        </div>
+        <div class="collapse" id="collapseAddTask">
+          <%= render 'form', task: @task %>
+        </div>
         </div>
       </div>
-
 
 <!--A EFFACER A LA FIN
       <div class="row">
