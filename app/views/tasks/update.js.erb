@@ -1,0 +1,17 @@
+function refreshForm(innerHTML) {
+  const newTaskForm = document.querySelector('edit_task');
+  newTaskForm.innerHTML = innerHTML;
+}
+
+function editTask(taskHTML) {
+  const task = document.querySelector(".info-group[data-task-id='<%= task.id%>']");
+  task.innerHTML = ("");
+  task.innerHTML = (taskHTML);
+}
+
+<% if @task.errors.any? %>
+  refreshForm('<%= j render "edit_form", task: @task %>');
+<% else %>
+  editTask('<%= j render "tasks/index", task: @task %>');
+  refreshForm('<%= j render "edit_form", task: @task %>');
+<% end %>
