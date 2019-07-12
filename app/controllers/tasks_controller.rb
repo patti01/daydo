@@ -40,6 +40,9 @@ class TasksController < ApplicationController
     @comments = @task.comments
   end
 
+  def edit
+  end
+
   def update
     authorize @task
     @task.update(task_params)

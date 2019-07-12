@@ -41,7 +41,7 @@
                       </div>
                       <div class="deadline-section">
                         <i class="far fa-calendar-alt"></i>
-                        <%= task.deadline.strftime("%m/%d/%y") %>
+                        <%= task.deadline %>
                       </div>
                       <div class="priority-section">
                         <%= task.sort_priority %>
@@ -56,10 +56,26 @@
                     </div>
                   </div>
                   <div class="comments-section">
-                    <% task.comments.each do |comment| %>
-                      <p><i class="far fa-sticky-note"></i>
-                      <%= comment.detail %></p>
-                    <% end %>
+                    <div class="comment-manager">
+                        <p><i class="fas fa-plus"></i> add a comment</p>
+                    </div>
+                    <div class="row" id="comment-custom">
+                      <% task.comments.each do |comment| %>
+                        <div id="comment-box">
+                          <div class="single-comment">
+                          <p><i class="far fa-sticky-note"></i>
+                          <%= comment.detail %>
+                          <%= link_to comment_path(comment), method: :delete, remote: true do %>
+                            <i class="fas fa-ban"></i>
+                            <% end %>
+                          </p>
+                          </div>
+                          <div>
+
+                          </div>
+                      </div>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
                 <div class="edit-btn">
@@ -160,7 +176,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= render 'edit_form', task: @task %>
+        <%= render 'edit', task: @task %>
       </div>
     </div>
   </div>

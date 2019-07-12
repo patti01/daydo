@@ -3,7 +3,7 @@
     <%= render 'comments/form', task: @task, comment: @comment %>
   <% else %>
     <% @comments.each do |comment| %>
-      <%= render 'comments/show', comment: comment %>
+      <%= render 'comments/show', task: @task, comment: @comment %>
     <% end %>
   <% end %>
 </div>
