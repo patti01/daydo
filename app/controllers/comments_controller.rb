@@ -29,6 +29,10 @@ class CommentsController < ApplicationController
   def destroy
     @comment.delete
     authorize @comment
+    respond_to do |format|
+      format.html { redirect_to tasks_path }
+      format.js
+    end
   end
 
   private
