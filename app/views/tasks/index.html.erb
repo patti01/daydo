@@ -3,16 +3,21 @@
     <div class="task-container">
       <div class="row">
         <div class="col-md-6 col-lg-8">
-          <div class="card bg-white">
-            <h1>Daydo | Organizing made simple</h1>
+          <div class="row logo-container">
+            <div class="logo">
+              <%= image_tag "https://res.cloudinary.com/patti01/image/upload/v1562777938/daydo-logo_m5aowx.png", style: 'width:200px;'  %>
+            </div>
+            <div class="baseline">
+              <p>| Organising made simple</p>
+            </div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
-          <div class="card bg-white">
+          <div class="card avatar-box" id="avatar">
             <ul>
                 <% if user_signed_in? %>
               <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://banner2.kisspng.com/20180420/sdw/kisspng-computer-icons-user-profile-login-avatar-description-5ada41a3affa18.5037201115242530917208.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
@@ -23,7 +28,61 @@
         </div>
       </div>
 
+      <div class="row" id="custom-main">
 
+        <div class="dashboard-left">
+            <% @tasks.each do |task| %>
+              <div class="row info-group" data-task-id='<%= task.id %>'>
+                <div class="display-left">
+                  <div class="main-section">
+                    <div class="row" id="elements-task">
+                      <div class="title-section">
+                        <%= link_to task["title"], task_path(task.id) %>
+                      </div>
+                      <div class="deadline-section">
+                        <i class="far fa-calendar-alt"></i>
+                        <%= task.deadline %>
+                      </div>
+                      <div class="priority-section">
+                        <%= task.sort_priority %>
+                      </div>
+                      <div class="checkbox-section">
+                        <% if task.completed %>
+                          <i class="fas fa-check"></i>
+                        <% else %>
+                          <i class="far fa-square"></i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comments-section">
+                  </div>
+                </div>
+                <div class="edit-btn">
+                  <div style="padding-right: 20px">
+                    <i class="far fa-edit"></i>
+                  </div>
+                  <div>
+                    <%= link_to task_path(task.id), method: :delete, remote: true, data: { confirm: "Delete #{task.title}?" } do %>
+                    <i class="far fa-times-circle"></i>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+
+        <div class="dashboard-right">
+          <%= link_to new_task_path, class: "btn-task" do %>
+          <i class="fa fa-plus"></i> Add a new task
+        <% end %>
+        <%= render 'form', task: @task %>
+        </div>
+      </div>
+
+
+<!--A EFFACER A LA FIN
       <div class="row">
       <div class="col-md-6 col-lg-8">
         <div class="card bg-white">
@@ -69,7 +128,7 @@
         <%= render 'form', task: @task %>
         </div>
       </div>
-    </div>
+    </div>-->
 
 
     </div>
