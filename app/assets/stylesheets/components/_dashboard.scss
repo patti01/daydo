@@ -1,6 +1,8 @@
 table {
   margin-right: 30px;
   margin-left: 30px;
+  border-collapse: separate;
+  border-spacing: 0 15px;
 }
 
 th {
@@ -11,7 +13,7 @@ th {
 }
 
 td {
-  padding: 8px 16px;
+  padding: 30px 16px;
 }
 
 tr.tasks-dashboard {
@@ -20,6 +22,123 @@ tr.tasks-dashboard {
   border: 1px solid #EDEDED;
   border-radius: 20px;
   padding: 20px 0px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  p {
+    font-size: 18px;
+    font-weight: bolder;
+  }
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+.baseline {
+  padding-top: 20px;
+}
+
+.dashboard-left {
+  flex-grow: 1;
+}
+
+.dashboard-right {
+  padding: 20px 30px;
+  background-color: #4c5def;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  .form-inputs {
+    label {
+      color: white;
+    }
+  }
+  .form-actions .btn {
+    background-color: white;
+    border: 1px solid white;
+    width: 100%;
+    color: #4c5def;
+    font-weight: bolder;
+  }
+  .form-actions .btn:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+  }
+}
+
+.info-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn {
+  background-color: rgb(255, 198, 110);
+  margin: 0px 20px;
+  border-radius: 32px;
+  padding: 16px 32px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  i {
+    text-decoration: none;
+    color: white
+  }
+}
+
+.edit-btn:hover {
+  a {
+    text-decoration: none;
+  }
+}
+
+.display-left {
+  flex-grow: 1;
+}
+
+.main-section {
+  background-color: #eeeef9;
+  border-radius: 15px;
+  padding: 16px 32px;
+  color: black;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  a {
+    text-decoration:none;
+    color: black;
+  }
+}
+
+.main-section:hover {
+  background-color: rgb(255, 198, 110);
+  color: white;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.title-section {
+  width: 150px;
+  font-weight: bolder;
+}
+
+#elements-task {
+  justify-content: space-between;
+}
+
+
+#new_task {
+  margin-top: 40px;
+}
+
+#custom-main {
+  margin: 40px 50px;
 }
 
 

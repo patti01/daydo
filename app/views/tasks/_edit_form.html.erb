@@ -1,0 +1,11 @@
+<%= simple_form_for(task, remote: true) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title, input_html: {class: "form-inputs"}, label: 'Title' %>
+    <%= f.input :sort_priority, input_html: {class: "form-inputs"}, label: 'Priority' %>
+    <%= f.input :deadline, input_html: {class: "form-inputs"}, as: :date, html5: true, label: "Deadline" %>
+    <div class="form-check">
+      <%= f.input :done, input_html: {class: "form-check-input"}, label: 'Task done' %>
+    </div>
+    <%= f.submit "Edit", class: "btn"%>
+  </div>
+<% end %>
