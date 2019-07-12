@@ -74,7 +74,7 @@ tr.tasks-dashboard {
   justify-content: space-between;
 }
 
-.edit-btn {
+#custom-task {
   background-color: rgb(255, 198, 110);
   margin: 0px 20px;
   border-radius: 32px;
@@ -91,7 +91,7 @@ tr.tasks-dashboard {
   }
 }
 
-.edit-btn:hover {
+#custom-task:hover {
   a {
     text-decoration: none;
   }
@@ -99,9 +99,6 @@ tr.tasks-dashboard {
 
 .display-left {
   flex-grow: 1;
-}
-
-.main-section {
   background-color: #eeeef9;
   border-radius: 15px;
   padding: 16px 32px;
@@ -114,18 +111,33 @@ tr.tasks-dashboard {
   }
 }
 
-.main-section:hover {
+.display-left:hover {
   background-color: rgb(255, 198, 110);
   color: white;
+  p {
+    color: white;
+  }
   a {
     text-decoration: none;
     color: white;
   }
 }
 
+.main-section {
+  padding-top: 10px;
+}
+
 .title-section {
   width: 150px;
   font-weight: bolder;
+  padding-bottom: 10px;
+}
+
+.comments-section {
+  p {
+    color: #575757;
+    margin: 0px;
+  }
 }
 
 #elements-task {

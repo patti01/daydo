@@ -35,8 +35,20 @@ class TasksController < ApplicationController
   end
 
   def update
+    authorize @task
     @task.update(task_params)
-    redirect_to task_path(@task)
+
+    if @task.update(task_params)
+      respond_to do |format|
+        format.html { redirect_to tasks_path }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render :edit }
+        format.js
+      end
+    end
   end
 
   def destroy
